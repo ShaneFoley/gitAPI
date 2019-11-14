@@ -1,0 +1,46 @@
+ .App {
+  text-align: center;
+}
+
+.App #repos{
+  text-align: left;
+}
+
+.App UserIcon{
+  position: absolute;
+  left: 100px;
+  top: 20;
+}
+
+#loading-statement{
+  position: relative;
+  top: 10px;
+  left:10px;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+body{
+  background-image: url('background.png');
+  background-repeat: no-repeat;
+  background-size: 1450px 800px;
+}
+
+#bold{
+  font-size: 20px;
+}
+
+
+div.repos{
+  overflow:scroll;
+}
+
+#repos{
+  text-align: left;
+}
+
+element.style {
+  text-align: left;
+}
