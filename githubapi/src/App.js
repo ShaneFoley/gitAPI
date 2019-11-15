@@ -73,22 +73,6 @@ class App extends Component {
 
 
 
-  getPieChartData(){
-    const labelLangs = this.listOfLanguages()
-    const dataLangs = this.renderLanguages()
-
-    this.setState({
-      pieChartData:{
-        labels: labelLangs,
-        datasets: [{
-            label:'',
-            backgroundColor: ['#f1c40f','#e67e22','#16a085','#2980b9','#DC143C', '#9932CC', '#808000','#D8BFD8','#F4A460','#FF0000'],
-            data: dataLangs
-        }]
-    }
-    })
-  }
-
 
   renderInfo() {
     return (
@@ -96,49 +80,17 @@ class App extends Component {
         <p> <UserIcon src={this.state.avatar} alt="this.name" /></p>
         <p>{this.state.name} | {this.state.id}</p>
 
+</div>
 
 
 
 
-        </div>
-
-
-        <div className='repos'>
-        <Popup  trigger={<button className="button"> Repos List </button>} modal closeOnDocumentClick>
-          <div>
-            List of Repositories
-          {this.state.repos ? this.renderList() : null}
-          </div>
-        </Popup>
-        </div>
-
-
-        <div className='languages'>
-        <Popup scrolling="yes" trigger={<button className="button"> Most Common Languages </button>} modal closeOnDocumentClick>
-          <div>
-  
-
-          <p>This user's languages consist of {this.listOfLanguages()}</p>
-          </div>
-        </Popup>
-        </div>
-      </div>
-    );
   }
 
 
   render() {
 
     return (
-      <div className="App">
-
-        <UserForm retrieveInfo={this.retrieveInfo} />
-        {this.state.name ?
-          this.renderInfo()
-          :
-          <p id="loading-statement">Please enter a username.</p>}
-
-      </div>
 
     );
   }
