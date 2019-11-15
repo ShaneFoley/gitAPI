@@ -53,7 +53,13 @@ class App extends Component {
 
   }
 
+  listOfLanguages(){
+    const arr = [];
+    {this.state.languages.map(language => (arr.push(language.language)))};
+    var langsUnique = ([...new Set(arr)]);
 
+    return(langsUnique)
+  }
 
   renderList() {
     return (
