@@ -66,7 +66,7 @@ class App extends Component {
       <ul>
         {this.state.repos.map(repo => (
           <li  key={repo.id}>
-               {<img src={this.state.avatar} alt="Profile-pic" height="12" width="12"></img>}
+               {<img src={this.state.avatar} alt="Profile-pic" height="6" width="6"></img>}
                {repo.name}
                <a href={repo.html_url}>Link</a>
 
