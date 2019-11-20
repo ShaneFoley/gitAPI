@@ -61,6 +61,17 @@ class App extends Component {
     return(langsUnique)
   }
 
+  renderLanguages(){
+    const arr = [];
+    {this.state.languages.map(language => (arr.push(language.language)))};
+    var langsUnique = ([...new Set(arr)]);
+    var arrayLength = langsUnique.length;
+    const size=[];
+    {this.state.languages.map(language => (size.push(language.size)))};
+    const subA = size.slice(0,arrayLength);
+    return(subA)
+  }
+
   renderList() {
     return (
       <ul>
