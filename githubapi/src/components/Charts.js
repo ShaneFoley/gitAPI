@@ -7,12 +7,17 @@ export default class Chart extends Component{
         super(props);
         this.state = {
             chartData:props.chartData
-
+            
         }
     }
     render(){
         return(
-          
+            <div className='chart'>
+                <Bar
+                data = {this.state.chartData} 
+                options = {{}}
+                />
+            </div>
         )
     }
 }

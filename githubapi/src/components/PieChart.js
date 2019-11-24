@@ -7,12 +7,16 @@ export default class PieChart extends Component{
         super(props);
         this.state = {
             pieChartData:props.pieChartData
-
+            
         }
     }
     render(){
         return(
-            
+            <div className='chart'>
+                <Pie
+                data = {this.state.pieChartData} 
+                />
+            </div>
         )
     }
 }
