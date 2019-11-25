@@ -1,5 +1,5 @@
 {
-  "name": "SWENG-GTIAPI",
+  "name": "swenggithubapi",
   "version": "1.0.0",
   "description": "Interrogate the GitHub API to retrieve and display data regarding the logged in developer.",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ShaneFoley/SWENG-GITAPI"
+    "url": "git+https://github.com/ShaneFoley/gitAPI"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ShaneFoley/SWENG-GITAPI"
+    "url": "https://github.com/ShaneFoley/gitAPI/issues"
   },
-  "homepage": "https://github.com/ShaneFoley/SWENG-GITAPI#readme",
+  "homepage": "https://github.com/ShaneFoley/gitAPI#readme",
   "dependencies": {
     "create-react-app": "^3.0.1"
   }
