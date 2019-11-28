@@ -22,10 +22,6 @@ class App extends Component {
     pieChartData:[]
   }
 
-
-/*Function which uses UserForm to pull all information 
-about each githubber which is desired.
-*/
   retrieveInfo = async (e) => {
     e.preventDefault();
 
@@ -52,14 +48,10 @@ about each githubber which is desired.
 
       this.getChartData();
       this.getPieChartData();
-      
-     
+
+
   }
 
- /* This function reads specific Github API information
- to combine with Chart.js component to complete the bar 
- chart.
- */
   getChartData(){
     const followerVal = this.state.followers
     const followingVal = this.state.following
@@ -69,24 +61,19 @@ about each githubber which is desired.
         ],
         datasets: [{
             label:'',
-            backgroundColor: ['#f1c40f','#e67e22'],
+            backgroundColor: ['#FF5050','#7C3397'],
             data: [followerVal , followingVal ,  0]
         }]
     }
     })
   }
 
-  /* 
-  This function returns a list of all public
-  repositories that a user owns.
- */
-
   renderList() {
     return (
       <ul>
         {this.state.repos.map(repo => (
           <li  key={repo.id}>
-               {<img src={this.state.avatar} alt="Profile-pic" height="12" width="12"></img>} 
+               {<img src={this.state.avatar} alt="Profile-pic" height="12" width="12"></img>}
                {repo.name}
                <a href={repo.html_url}>Link</a>
 
@@ -96,11 +83,7 @@ about each githubber which is desired.
     )
   }
 
-  /* 
-  This function is essential to create the pie chart
-  as it removes all duplicates where a language is used 
-  in another repository.
- */
+
   listOfLanguages(){
     const arr = [];
     {this.state.languages.map(language => (arr.push(language.language)))};
@@ -119,10 +102,6 @@ about each githubber which is desired.
     const subA = size.slice(0,arrayLength);
     return(subA)
   }
-  /* 
-  This function returns a random colour for each section of
-  the pie chart.
- */
   getRandomColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';
@@ -131,69 +110,59 @@ about each githubber which is desired.
     }
     return color;
   }
-  
-  
+
+
   getPieChartData(){
     const labelLangs = this.listOfLanguages()
     const dataLangs = this.renderLanguages()
-  
+
     this.setState({
       pieChartData:{
         labels: labelLangs,
         datasets: [{
             label:'',
-            backgroundColor: ['#f1c40f','#e67e22','#16a085','#2980b9','#DC143C', '#9932CC', '#808000','#D8BFD8','#F4A460','#FF0000'],
+            backgroundColor: ['#C73E55','#593EC7','#3EC7BE','#C7C73E','#67C73E', '#9932CC', '#808000','#D8BFD8','#F4A460','#FF0000'],
             data: dataLangs
         }]
     }
     })
   }
 
-  /* 
-  RenderInfo() contains all popup buttons.
- */
 
   renderInfo() {
     return (
       <div className='renders'>
         <p> <UserIcon src={this.state.avatar} alt="this.name" /></p>
         <p>{this.state.name} | {this.state.id}</p>
-        
+
+        <div className='languages'>
+        <Popup scrolling="yes" trigger={<button className="button"> Programming Languages </button>} modal closeOnDocumentClick>
+          <div>
+          <div><PieChart pieChartData={this.state.pieChartData}/></div>
+          </div>
+        </Popup>
+        </div>
 
 
         <div className='chart'>
-        <Popup scrolling="yes" trigger={<button className="button"> Followers vs Following </button>} modal closeOnDocumentClick>
+        <Popup scrolling="yes" trigger={<button className="button"> Followers</button>} modal closeOnDocumentClick>
           <div>
-          
+
           <div><Chart chartData={this.state.chartData}/></div>
-          
-          <p>Since joining Github, this user has gained {this.state.followers} followers
-          and has followed {this.state.following}.</p>
           </div>
         </Popup>
         </div>
 
 
         <div className='repos'>
-        <Popup  trigger={<button className="button"> Repos List </button>} modal closeOnDocumentClick>
+        <Popup  trigger={<button className="button"> Repos </button>} modal closeOnDocumentClick>
           <div>
             List of Repositories
           {this.state.repos ? this.renderList() : null}
           </div>
         </Popup>
         </div>
-
-
-        <div className='languages'>
-        <Popup scrolling="yes" trigger={<button className="button"> Most Common Languages </button>} modal closeOnDocumentClick>
-          <div>
-          <div><PieChart pieChartData={this.state.pieChartData}/></div>
-          
-          <p>This user's languages consist of {this.listOfLanguages()}</p>
-          </div>
-        </Popup>
-        </div>
-      </div>
+  </div>
     );
   }
 
@@ -207,8 +176,10 @@ about each githubber which is desired.
         {this.state.name ?
           this.renderInfo()
           :
-          <p id="loading-statement">Please enter a username.</p>}
-          
+          <p id="loading-statement">Enter a github username</p>}
+
+
+
       </div>
 
     );
@@ -218,9 +189,7 @@ about each githubber which is desired.
 export default App;
 
 const UserIcon = styled('img')`
-    position: 50px 700px;
-    width: 350px;
-    height: 350px;
+    position: 30px 500px;
+    width: 200px;
+    height: 200px;
     `
-
-   

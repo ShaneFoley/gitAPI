@@ -1,5 +1,8 @@
  .App {
   text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+
 }
 
 .App #repos{
@@ -8,7 +11,7 @@
 
 .App UserIcon{
   position: absolute;
-  left: 100px;
+  left: 1000px;
   top: 20;
 }
 
@@ -24,23 +27,23 @@
 
 body{
   background-image: url('background.png');
-  background-repeat: no-repeat;
   background-size: 1450px 800px;
+  background-repeat: no-repeat;
+
 }
 
 #bold{
-  font-size: 20px;
+  font-size: 30px;
 }
 
 
 div.repos{
   overflow:scroll;
 }
-
-#repos{
+element.style {
   text-align: left;
 }
 
-element.style {
+#repos{
   text-align: left;
 }
